@@ -28,8 +28,8 @@ Amazon EventBridge supports **serverless scheduling** that eliminates the need f
 - From the left menu, choose **Rules**
 - Click on **Create rule**
 
-![eventbridge1](/images/3.eventbridge/eventbridge-1.png)
-![eventbridge2](/images/3.eventbridge/eventbridge-2.png)
+![eventbridge1](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-1.png)
+![eventbridge2](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-2.png)
 
 ---
 
@@ -41,7 +41,7 @@ Amazon EventBridge supports **serverless scheduling** that eliminates the need f
 - Choose **Enable the rule on the selected event bus**
 - Click **Continue to create rule**
 
-![eventbridge3](/images/3.eventbridge/eventbridge-3.png)
+![eventbridge3](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-3.png)
 
 ---
 
@@ -53,7 +53,7 @@ Amazon EventBridge supports **serverless scheduling** that eliminates the need f
 -> This runs every day at 10:00 AM GMT+7 (Because the time in Vietnam is 7 hours faster than GMT so we reduce Hours by 7)
 - Click **Next**
 
-![eventbridge3](/images/3.eventbridge/eventbridge-4.png)
+![eventbridge3](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-4.png)
 
 ---
 
@@ -68,7 +68,7 @@ Amazon EventBridge supports **serverless scheduling** that eliminates the need f
 
 - Click **Next**
 
-![eventbridge4](/images/3.eventbridge/eventbridge-5.png)
+![eventbridge4](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-5.png)
 ---
 
 ### 5. Review and Create Rule
@@ -79,7 +79,7 @@ Review all settings:
 - Build Target(s)
 - Configure tag(s)
 - Click **Create rule**
-![eventbridge4](/images/3.eventbridge/eventbridge-6.png)
+![eventbridge4](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-6.png)
 
 ---
 

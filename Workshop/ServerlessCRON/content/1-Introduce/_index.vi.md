@@ -20,7 +20,7 @@ Thông thường, các CRON job sẽ được định nghĩa trong tệp **cront
 
 - Ngày cụ thể trong tuần hoặc trong tháng (ví dụ: mỗi thứ Hai)
 
-![CRONJobs](/images/cron-table.png) 
+![CRONJobs](https://dangdung177.github.io/Internship/images/cron-table.png) 
 Các ký tự đặc biệt sau được hỗ trợ trong AWS EventBridge:
 
 - **(*)**: Tất cả giá trị (mỗi ngày, mỗi giờ,...).
@@ -37,7 +37,7 @@ Cú pháp CRON hoạt động như sau:
 `cron(Phút Giờ Ngày-trong-tháng Tháng Ngày-trong-tuần Năm)`  
 Ví dụ:  
 `cron(0 10 * * ? *)` = Chạy vào lúc 10:00 sáng (UTC+0) mỗi ngày
-![CRONJobs](/images/cron-breakdown-vi.png) 
+![CRONJobs](https://dangdung177.github.io/Internship/images/cron-breakdown-vi.png) 
 
 ---
 
@@ -59,7 +59,7 @@ Với cách tiếp cận này, chúng ta có thể định nghĩa các tác vụ
 
 ### Amazon EventBridge
 
-![AmazonEventBridge](/images/eventbridge.png)  
+![AmazonEventBridge](https://dangdung177.github.io/Internship/images/eventbridge.png)  
 **Amazon EventBridge** là một dịch vụ serverless của AWS, EventBridge giúp kết nối các thành phần khác nhau của ứng dụng thông qua các sự kiện, hỗ trợ chúng ta xây dựng các ứng dụng theo hướng sự kiện có khả năng mở rộng.
 EventBridge hỗ trợ **biểu thức CRON**, cho phép chúng ta chạy các tác vụ theo lịch (CRON jobs) mà không cần lo lắng về cơ sở hạ tầng.
 
@@ -67,14 +67,14 @@ EventBridge hỗ trợ **biểu thức CRON**, cho phép chúng ta chạy các t
 
 ### AWS Lambda
 
-![AmazonLambda](/images/lambda.png)  
+![AmazonLambda](https://dangdung177.github.io/Internship/images/lambda.png)  
 **AWS Lambda** là một dịch vụ Cloud serverless giúp chúng ta chạy mã nguồn mà không cần gánh nặng vận hành hoặc cấp phát máy chủ. Lambda tự động mở rộng và quản lý toàn bộ hạ tầng cần thiết để chạy mã của chúng ta khi có sự kiện — bao gồm cả các sự kiện từ EventBridge.
 
 ---
 
 ### Amazon CloudWatch
 
-![AmazonCloudWatch](/images/cloudwatch.png)  
+![AmazonCloudWatch](https://dangdung177.github.io/Internship/images/cloudwatch.png)  
 **Amazon CloudWatch** là dịch vụ giám sát các tài nguyên AWS và ứng dụng của chúng ta trong thời gian thực. Dịch vụ này cho phép chúng ta thu thập log, theo dõi chỉ số và thiết lập cảnh báo. CloudWatch là công cụ thiết yếu giúp theo dõi, chẩn đoán và hiểu rõ tình trạng hoạt động của ứng dụng và việc sử dụng tài nguyên.
 
 ---

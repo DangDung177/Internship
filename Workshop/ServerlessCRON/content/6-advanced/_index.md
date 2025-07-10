@@ -64,10 +64,10 @@ Use **rate()** for simple intervals:
 
 **Best practice:** choose **rate()** for “every _N_ minutes/hours/days”, choose **cron()** when you need calendar‑aware schedules (weekdays, specific month/day, etc.).
 - When create new rule, choose the same as when create cron expression.
-![advanced-1](/images/6.advanced/advanced-1.png)
+![advanced-1](https://dangdung177.github.io/Internship/images/6.advanced/advanced-1.png)
 - In **Define Schedule** section, choose the right option of **Schedule pattern**
 - Choose Rate Expression as you see fit.
-![advanced-2](/images/6.advanced/advanced-2.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-2.png)
 - Then continue create rule as you [create a cron rule](/3-eventbridge/#4-Select-Target).
 ---
 ### 3. Adding Event Pattern Filters
@@ -76,7 +76,7 @@ Sometimes you publish different kinds of events to the default bus and only want
 An event pattern defines the data EventBridge uses to determine whether to send the event to the target. If the event pattern matches the event, EventBridge sends the event to the target.
 
 1. In the rule builder, choose **Event pattern** instead of **Schedule**.  
-![advanced-2](/images/6.advanced/advanced-3.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-3.png)
 2. Event source: choose **AWS events or event source** (or **Custom pattern** if using your own bus).
 3. Define JSON filter, e.g.:
 
@@ -99,7 +99,7 @@ This triggers only when:
 An Input Transformer is a feature that allows you to customize the data sent to a target when a rule is triggered. It enables you to reshape or filter the event data before it's passed to the target, making it easier to work with specific data points or format the data in a way that's compatible with the target service.
 1. Edit or create a rule.
 2. In the Targets section, after choosing your Lambda, expand Additional settings.
-![advanced-2](/images/6.advanced/advanced-4.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-4.png)
 3. Choose **Configure target input** and then **Input transformer** then **Configure input transformer** 
 You can transform the incoming event before it arrives at your Lambda:
 ```json
@@ -116,7 +116,7 @@ You can transform the incoming event before it arrives at your Lambda:
    }"
 }
 ```
-![advanced-2](/images/6.advanced/advanced-5.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-5.png)
 Original Event:
 ```json
 {
@@ -150,10 +150,10 @@ Example:
 When create or edit a new rule:   
 - Go to the “Add target” section
 - Add your Lambda function
-![advanced-2](/images/6.advanced/advanced-target1.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-target1.png)
 - Click “Add another target”
 - Choose SNS topic
-![advanced-2](/images/6.advanced/advanced-target2.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-target2.png)
 - Configure both as needed
 - Click Create rule or Update rule
 

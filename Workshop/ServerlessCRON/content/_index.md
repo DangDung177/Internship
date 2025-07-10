@@ -12,7 +12,7 @@ In this lab, you’ll learn how to automate tasks on a schedule using AWS EventB
 
 We’ll use Amazon EventBridge to define CRON expressions and trigger Lambda functions without needing to manage servers. This allows for a fully serverless, scalable, and cost-effective solution for time-based automation.
 
-![ServerlessCRON](/images/cron-architecture-en.png) 
+![ServerlessCRON](https://dangdung177.github.io/Internship/images/cron-architecture-en.png) 
 
 ### Content
  1. [Introduction](1-introduce/)

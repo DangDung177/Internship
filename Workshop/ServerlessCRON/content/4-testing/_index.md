@@ -29,10 +29,10 @@ You will watch the first invocation in near‑real time, inspect the log output 
 3. In the **Schedule** section verify the **Next 10 trigger dates** list  
    (Make sure the times match your expected local time / UTC offset.)
 4. Click **Edit**
-![rule‑detail](/images/4.testing/testing-1.png)
+![rule‑detail](https://dangdung177.github.io/Internship/images/4.testing/testing-1.png)
 
 > **Tip** – If you don’t want to wait until the next hour/day, temporarily edit the CRON expression to a time a few minutes ahead, _Save_, then revert after testing.
-![rule‑detail](/images/4.testing/testing-2.png)  
+![rule‑detail](https://dangdung177.github.io/Internship/images/4.testing/testing-2.png)  
 Explanation:
 `cron(0/3 * * * ? *)` = Run every 3 minute every day
 
@@ -43,7 +43,7 @@ Explanation:
 - Go to **Lambda -> Monitor -> Recent invocations** tab  
 - Refresh after the expected trigger time; you should see **1 new invocation**
 
-![lambda‑invocation](/images/4.testing/testing-3.png)
+![lambda‑invocation](https://dangdung177.github.io/Internship/images/4.testing/testing-3.png)
 
 ---
 
@@ -52,7 +52,7 @@ Explanation:
 1. In the Lambda console, choose **Monitor -> View logs in CloudWatch**  
 2. Click the **latest Log stream** (timestamp matches your trigger time)  
 3. Verify you see the two log lines you coded earlier:
-![lambda‑invocation](/images/4.testing/testing-4.png)
+![lambda‑invocation](https://dangdung177.github.io/Internship/images/4.testing/testing-4.png)
 
 ---
 
@@ -62,7 +62,7 @@ Explanation:
 - Confirm **Invocations = 1** and **Errors = 0**  
 - If you allowed the rule to continue running, you’ll see the graph update at each interval
 
-![metrics](/images/4.testing/testing-5.png)
+![metrics](https://dangdung177.github.io/Internship/images/4.testing/testing-5.png)
 
 ---
 

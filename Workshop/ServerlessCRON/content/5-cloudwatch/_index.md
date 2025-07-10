@@ -31,7 +31,7 @@ CloudWatch is automatically integrated with Lambda when you assign the `AWSLambd
 4. Click the **Log group** to view its streams  
 5. Click the **latest log stream** to see detailed log entries
 
-![cloudwatch-logs](/images/5.cloudwatch/cloudwatch-1.png)
+![cloudwatch-logs](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-1.png)
 
 ---
 
@@ -49,7 +49,7 @@ This log helps verify that:
 - Input and output are as expected  
 - No errors or timeouts occurred
 
-![cloudwatch-stream](/images/5.cloudwatch/cloudwatch-2.png)
+![cloudwatch-stream](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-2.png)
 
 ---
 
@@ -62,11 +62,11 @@ This log helps verify that:
    - **Errors**: failed invocations  
    - **Throttles**: if AWS had to limit your function  
 3. You can customize the chart display and time range
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-4.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-4.png)
 
 > ✅ These metrics help you quickly detect problems like increased duration, missed schedules, or rising error rates.
 
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-3.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-3.png)
 
 ---
 
@@ -75,24 +75,24 @@ This log helps verify that:
 You can set CloudWatch alarms to receive alerts when something goes wrong:
 
 - Go to **CloudWatch -> Alarms -> Create Alarm**  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-5.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-5.png)
 - Choose the Lambda metric you want to monitor (e.g., Errors > 0)  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-6.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-6.png)
 - In this example we will choose Errors.
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-7.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-7.png)
 - Define a condition to alarm 
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-8.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-8.png)
 - Then We choose notification action. In this example, we will choose sending email via SNS.
    - Make sure to request confirmation of CloudWatchAlarms Topic. You can do it by go to **Amazon SNS** -> **Subscriptions** -> **Request Confirmation** -> Check for your **Gmail**(the mail might be in **trash**) -> **Confirm Subscriptions**
-   ![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-gmail.png)
+   ![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-gmail.png)
 
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-9.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-9.png)
 - Here you can choose other actions like Lambda, Auto Scaling, EC2, Systems Manager and Investigation Acion
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-10.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-10.png)
 - Name the alarm and click **Next**
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-11.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-11.png)
 - Review every step and create alarm when you are done
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-12.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-12.png)
 > This is a best practice for keeping your CRON jobs production ready and observable.
 
 ---

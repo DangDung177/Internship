@@ -28,8 +28,8 @@ Amazon EventBridge hỗ trợ **lên lịch serverless**, loại bỏ nhu cầu 
 - Từ menu bên trái, chọn **Rules**
 - Nhấn vào **Create rule**
 
-![eventbridge1](/images/3.eventbridge/eventbridge-1.png)
-![eventbridge2](/images/3.eventbridge/eventbridge-2.png)
+![eventbridge1](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-1.png)
+![eventbridge2](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-2.png)
 
 ---
 
@@ -41,7 +41,7 @@ Amazon EventBridge hỗ trợ **lên lịch serverless**, loại bỏ nhu cầu 
 - Chọn **Enable the rule on the selected event bus**
 - Nhấn **Continue to create rule**
 
-![eventbridge3](/images/3.eventbridge/eventbridge-3.png)
+![eventbridge3](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-3.png)
 
 ---
 
@@ -53,7 +53,7 @@ Amazon EventBridge hỗ trợ **lên lịch serverless**, loại bỏ nhu cầu 
 -> Lệnh này sẽ chạy hàng ngày lúc 10:00 sáng theo giờ GMT+7 (Vì giờ Việt Nam nhanh hơn GMT 7 tiếng nên cần giảm Giờ 7 tiếng)
 - Nhấn **Next**
 
-![eventbridge3](/images/3.eventbridge/eventbridge-4.png)
+![eventbridge3](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-4.png)
 
 ---
 
@@ -68,7 +68,7 @@ Amazon EventBridge hỗ trợ **lên lịch serverless**, loại bỏ nhu cầu 
 
 - Nhấn **Next**
 
-![eventbridge4](/images/3.eventbridge/eventbridge-5.png)
+![eventbridge4](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-5.png)
 
 ---
 
@@ -81,7 +81,7 @@ Xem lại tất cả các cấu hình:
 - Gắn thẻ (nếu cần)
 - Nhấn **Create rule**
 
-![eventbridge4](/images/3.eventbridge/eventbridge-6.png)
+![eventbridge4](https://dangdung177.github.io/Internship/images/3.eventbridge/eventbridge-6.png)
 
 ---
 

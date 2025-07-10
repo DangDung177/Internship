@@ -67,10 +67,10 @@ Dùng **rate()** cho các khoảng thời gian đơn giản:
 **Gợi ý:** dùng **rate()** khi cần “mỗi _N_ phút/giờ/ngày”, dùng **cron()** khi cần lịch có nhận thức theo ngày tháng.
 
 - Khi tạo rule mới, chọn tương tự như cron  
-![advanced-1](/images/6.advanced/advanced-1.png)  
+![advanced-1](https://dangdung177.github.io/Internship/images/6.advanced/advanced-1.png)  
 - Trong phần **Define Schedule**, chọn **Schedule pattern** phù hợp  
 - Chọn biểu thức Rate bạn muốn dùng  
-![advanced-2](/images/6.advanced/advanced-2.png)  
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-2.png)  
 - Tiếp tục tạo rule như [tạo cron rule](/3-eventbridge/#4-Select-Target)
 
 ---
@@ -82,7 +82,7 @@ Khi bạn gửi nhiều loại sự kiện đến EventBridge nhưng chỉ muố
 Event pattern là điều kiện để quyết định có gửi event đến target hay không.
 
 1. Trong builder, chọn **Event pattern** thay vì **Schedule**  
-![advanced-2](/images/6.advanced/advanced-3.png)  
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-3.png)  
 2. Event source: chọn **AWS events** hoặc **Custom pattern**  
 3. Định nghĩa bộ lọc JSON, ví dụ:
 
@@ -106,7 +106,7 @@ Rule này chỉ kích hoạt khi:
 Input Transformer là một tính năng cho phép bạn tùy chỉnh dữ liệu được gửi đến target khi một rule được kích hoạt. Nó giúp bạn định dạng lại hoặc lọc dữ liệu sự kiện trước khi truyền đến target, giúp dễ dàng làm việc với các trường dữ liệu cụ thể hoặc định dạng dữ liệu sao cho phù hợp với dịch vụ nhận.
 1. Tạo hoặc sửa rule
 2. Trong phần Targets, mở Additional settings
-![advanced-2](/images/6.advanced/advanced-4.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-4.png)
 3. Chọn **Configure target input** -> **Input transformer** -> **Configure input transformer**  
 Ví dụ:
 
@@ -125,6 +125,8 @@ Ví dụ:
   }"
 }
 ```
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-5.png)
+
 Event gốc:
 ```json
 {
@@ -156,10 +158,10 @@ Ví dụ:
 
 Khi tạo hoặc sửa rule:
 - Vào phần Add target -> chọn Lambda
-![advanced-2](/images/6.advanced/advanced-target1.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-target1.png)
 - Nhấn Add another target
 - Chọn SNS topic
-![advanced-2](/images/6.advanced/advanced-target2.png)
+![advanced-2](https://dangdung177.github.io/Internship/images/6.advanced/advanced-target2.png)
 - Cấu hình từng target theo cần thiết
 - Nhấn Create rule hoặc Update rule
 ### ✅ 6. Kết quả đạt được

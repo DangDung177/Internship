@@ -12,7 +12,7 @@ Trong bài lab này, bạn sẽ học cách tự động hóa các tác vụ the
 
 Chúng ta sẽ sử dụng Amazon EventBridge để định nghĩa biểu thức CRON và kích hoạt các hàm Lambda mà không cần quản lý máy chủ. Điều này giúp bạn triển khai giải pháp tự động hóa có khả năng mở rộng, tiết kiệm chi phí và hoàn toàn không máy chủ.
 
-![ServerlessCRON](/images/cron-architecture-vi.png) 
+![ServerlessCRON](https://dangdung177.github.io/Internship/images/cron-architecture-vi.png) 
 
 ### Nội dung
  1. [Giới Thiệu](1-introduce/)

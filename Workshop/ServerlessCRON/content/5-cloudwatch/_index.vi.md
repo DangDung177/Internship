@@ -31,7 +31,7 @@ CloudWatch được tích hợp tự động với Lambda khi bạn cấp quyề
 4. Nhấn vào **Log group** để xem các stream  
 5. Nhấn vào **log stream mới nhất** để xem chi tiết log
 
-![cloudwatch-logs](/images/5.cloudwatch/cloudwatch-1.png)
+![cloudwatch-logs](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-1.png)
 
 ---
 
@@ -49,7 +49,7 @@ Log này giúp bạn xác minh rằng:
 - Đầu vào và đầu ra đúng như mong đợi  
 - Không có lỗi hoặc timeout xảy ra  
 
-![cloudwatch-stream](/images/5.cloudwatch/cloudwatch-2.png)
+![cloudwatch-stream](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-2.png)
 
 ---
 
@@ -62,11 +62,11 @@ Log này giúp bạn xác minh rằng:
    - **Errors**: số lần lỗi  
    - **Throttles**: Lambda bị giới hạn do vượt quota  
 3. Bạn có thể tùy chỉnh biểu đồ và thời gian hiển thị  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-4.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-4.png)
 
 > ✅ Các chỉ số này giúp bạn nhanh chóng phát hiện các vấn đề như: thời lượng tăng cao, lịch chạy bị bỏ lỡ hoặc tỷ lệ lỗi tăng.
 
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-3.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-3.png)
 
 ---
 
@@ -75,24 +75,24 @@ Log này giúp bạn xác minh rằng:
 Bạn có thể thiết lập cảnh báo CloudWatch để nhận thông báo khi có sự cố:
 
 - Truy cập **CloudWatch -> Alarms -> Create Alarm**  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-5.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-5.png)
 - Chọn metric của Lambda bạn muốn giám sát (ví dụ: Errors > 0)  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-6.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-6.png)
 - Trong ví dụ này, chọn **Errors**
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-7.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-7.png)
 - Định nghĩa điều kiện kích hoạt cảnh báo  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-8.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-8.png)
 - Sau đó chọn hành động thông báo. Trong ví dụ này, chúng ta sẽ chọn gửi email qua SNS.
    - Đảm bảo bạn đã xác nhận đăng ký chủ đề SNS. Thực hiện bằng cách vào **Amazon SNS** -> **Subscriptions** -> **Request Confirmation** -> Kiểm tra hộp thư **Gmail** của bạn (email có thể nằm trong **thùng rác**) -> **Confirm Subscription**
-   ![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-gmail.png)
+   ![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-gmail.png)
 
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-9.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-9.png)
 - Bạn cũng có thể chọn hành động khác như Lambda, Auto Scaling, EC2, Systems Manager hoặc Investigation Action  
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-10.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-10.png)
 - Đặt tên cho cảnh báo và nhấn **Next**
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-11.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-11.png)
 - Kiểm tra lại toàn bộ cấu hình và nhấn **Create alarm**
-![cloudwatch-metrics](/images/5.cloudwatch/cloudwatch-12.png)
+![cloudwatch-metrics](https://dangdung177.github.io/Internship/images/5.cloudwatch/cloudwatch-12.png)
 
 > Đây là cách thực hành tốt nhất để đảm bảo CRON job của bạn sẵn sàng hoạt động ổn định trong môi trường sản xuất.
 

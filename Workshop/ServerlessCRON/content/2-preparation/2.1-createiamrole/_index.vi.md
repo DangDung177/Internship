@@ -21,19 +21,19 @@ Trong phần này, bạn sẽ tạo một **IAM Role cho AWS Lambda** với các
 #### 1. Mở IAM Console
 - Đăng nhập **AWS Management Console**
 - Tìm và mở dịch vụ **IAM**
-![IAM](/images/2.prerequisite/IAM-1.png)
+![IAM](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-1.png)
 
 #### 2. Tạo Role mới
 - Ở thanh điều hướng bên trái, chọn **Roles**
 - Nhấn **Create role**
-![IAM-CreateRole](/images/2.prerequisite/IAM-2.png)
-![IAM](/images/2.prerequisite/IAM-3.png)
+![IAM-CreateRole](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-2.png)
+![IAM](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-3.png)
 
 #### 3. Chọn loại thực thể tin cậy
 - Trong **Trusted entity type**, chọn **AWS service**
 - Chọn **Lambda** làm trường hợp sử dụng
 - Nhấn **Next**
-![IAM](/images/2.prerequisite/IAM-4.png)
+![IAM](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-4.png)
 
 #### 4. Gán quyền
 - Trong ô tìm kiếm, nhập: `AWSLambdaBasicExecutionRole`
@@ -41,7 +41,7 @@ Trong phần này, bạn sẽ tạo một **IAM Role cho AWS Lambda** với các
   - Cho phép hàm Lambda ghi log vào **Amazon CloudWatch Logs**
 - (Tùy chọn) Nếu Lambda cần truy cập S3, DynamoDB, SNS,… hãy gán thêm quyền tại đây
 - Nhấn **Next**
-![IAM](/images/2.prerequisite/IAM-5.png)
+![IAM](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-5.png)
 
 {{% notice info %}}
 Bạn có thể gán thêm chính sách sau này nếu hàm Lambda cần truy cập các dịch vụ AWS khác.
@@ -52,8 +52,8 @@ Bạn có thể gán thêm chính sách sau này nếu hàm Lambda cần truy c�
 - (Tùy chọn) Thêm mô tả, chẳng hạn: _"Cho phép Lambda gọi các dịch vụ AWS thay bạn."_
 - Xem lại trust policy và quyền
 - Nhấn **Create role**
-![IAM](/images/2.prerequisite/IAM-6.png)
-![IAM](/images/2.prerequisite/IAM-7.png)
+![IAM](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-6.png)
+![IAM](https://dangdung177.github.io/Internship/images/2.prerequisite/IAM-7.png)
 
 🔐 *Quan trọng:* Tên Role phải duy nhất và **không phân biệt chữ hoa – chữ thường**; ví dụ `cron-lambda-executor` và `Cron-Lambda-Executor` được xem là trùng.
 

@@ -30,7 +30,7 @@ CRON syntax work like this:
 
 Examples:  
 `cron(0 10 * * ? *)` = Run at 10:00 AM (UTC+0) every day
-![CRONJobs](/images/cron-breakdown.png) 
+![CRONJobs](https://dangdung177.github.io/Internship/images/cron-breakdown.png) 
 
 ### Why Serverless CRON Jobs?
 With  **AWS EventBridge** and **AWS Lambda**, we can replace our CRON settings with a serverless solution that is:
@@ -46,16 +46,16 @@ With  **AWS EventBridge** and **AWS Lambda**, we can replace our CRON settings w
 This approach allow we to define jobs using **CRON expressions in EventBridge** and perform them via **Lambda functions** - all without provisioning any infrastructure.
 
 ### Amazon EventBridge
-![AmazonEventBridge](/images/eventbridge.png) 
+![AmazonEventBridge](https://dangdung177.github.io/Internship/images/eventbridge.png) 
 **Amazon EventBridge** is a serverless event bus service that uses events to connect different components of your applications, helping you build scalable event-driven applications.
 EventBridge support **CRON expressions**, letting you run scheduled tasks (CRON jobs) without worrying about the infrastructure.
 
 ### Amazon Lambda
-![AmazonLambda](/images/lambda.png) 
+![AmazonLambda](https://dangdung177.github.io/Internship/images/lambda.png) 
 **Amazon Lambda** is a compute service that lets you run code without operational overhead of provisioning servers. It automatically scales, and manages all the infrastructure required to run your code in response to any kind of events - including those from EventBridge rules.
 
 ### Amazon CloudWatch 
-![AmazonCloudWatch](/images/cloudwatch.png) 
+![AmazonCloudWatch](https://dangdung177.github.io/Internship/images/cloudwatch.png) 
 **Amazon CloudWatch** is a monitoring service for AWS resources and your applications in real time. It allows you to collect logs and metrics and set alarms. CloudWatch is essential to tracking, diagnosing, and understandings application health and resource use.
 
 ---
