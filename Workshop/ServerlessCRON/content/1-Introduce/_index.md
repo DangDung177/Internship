@@ -14,7 +14,7 @@ Normally, CRON jobs would be defined in a **crontab** file and subsequently exec
 - Specific days of the week or month (e.g., every Monday)
 ![CRONJobs](https://https://dangdung177.github.io/Internship/images/cron-table.png) 
 The following special characters are supported in AWS EventBridge:
-
+ 
 - **(*)**: All value (every day, every hour,... ).
 - **(?)**: No specific value (used in day-of-month or day-of-week, **never both!!**).
 - **(,)**: Separates multiple values ( 1,4 means Monday and Thursday).
