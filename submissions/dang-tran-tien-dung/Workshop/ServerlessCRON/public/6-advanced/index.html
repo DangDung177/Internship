@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Advanced Scheduling and Filtering :: AWS System Manager</title>
+
+    
+    <link href="/css/nucleus.css?1752079431" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752079431" rel="stylesheet">
+    <link href="/css/hybrid.css?1752079431" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752079431" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752079431" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752079431" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752079431" rel="stylesheet">
+    <link href="/css/theme.css?1752079431" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752079431" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1752079431" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1752079431"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/6-advanced/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1752079431"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752079431"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1752079431"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-introduce/">
+           <b> 1. </b> Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-preparation/" title="Preparation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-preparation/">
+           <b> 2. </b> Preparation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-preparation/2.1-createiamrole/" title="Create IAM Role for Lambda" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-preparation/2.1-createiamrole/">
+           <b> 2.1 </b> Create IAM Role for Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-preparation/2.2-preparelambda/" title="Prepare Lambda Function Code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-preparation/2.2-preparelambda/">
+           <b> 2.2 </b> Prepare Lambda Function Code
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-eventbridge/" title="Setting up EventBridge Rule" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-eventbridge/">
+           <b> 3. </b> Setting up EventBridge Rule
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-testing/" title="Testing Scheduled Events" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-testing/">
+           <b> 4. </b> Testing Scheduled Events
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-cloudwatch/" title="Monitoring with CloudWatch Logs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-cloudwatch/">
+           <b> 5. </b> Monitoring with CloudWatch Logs
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-advanced/" title="Advanced Scheduling and Filtering" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/6-advanced/">
+           <b> 6. </b> Advanced Scheduling and Filtering
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-cleanup/" title="Clean Up Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-cleanup/">
+           <b> 7. </b> Clean Up Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/6-advanced/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/6-advanced/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Building Serverless CRON Jobs with EventBridge and Lambda</a> > Advanced Scheduling and Filtering
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#1-finegrained-cron-expressions">1. Fine‑grained CRON Expressions</a></li>
+        <li><a href="#2-ratebased-schedules">2. Rate–Based Schedules</a></li>
+        <li><a href="#3-adding-event-pattern-filters">3. Adding Event Pattern Filters</a></li>
+        <li><a href="#4-using-an-input-transformer">4. Using an Input Transformer</a></li>
+        <li><a href="#5-multiple-targets">5. Multiple Targets</a></li>
+        <li><a href="#-6-result">✅ 6. <strong>Result</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Advanced Scheduling and Filtering
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="overview">Overview</h3>
+<p>Now that you have a basic rule triggering your Lambda on a fixed schedule, this chapter explores <strong>advanced EventBridge capabilities</strong>:</p>
+<ol>
+<li>Fine‑grained CRON expressions (weekdays only, last day of month, ranges)</li>
+<li><strong>Rate</strong> versus <strong>CRON</strong> patterns—when to use each</li>
+<li><strong>Event pattern filtering</strong> to invoke targets only when specific conditions match</li>
+<li><strong>Input transformers</strong> for custom payloads</li>
+<li>Sending the same event to <strong>multiple targets</strong> (Lambda, Step Functions, SNS, etc.)</li>
+</ol>
+<hr>
+<h3 id="objectives">Objectives</h3>
+<ul>
+<li>Build complex schedules (e.g., “every last weekday of the month at 17:30”)</li>
+<li>Add filters so that only certain events reach your Lambda</li>
+<li>Transform the event body before it hits your function</li>
+<li>Attach more than one target to a single rule</li>
+</ul>
+<hr>
+<h3 id="1-finegrained-cron-expressions">1. Fine‑grained CRON Expressions</h3>
+<p>A fine‑grained CRON expression is a precise time-based schedule that allows you to define highly specific trigger times using the extended CRON syntax supported by AWS EventBridge. They reduce complexity, minimize unnecessary invocations, and ensure your jobs align with real-world schedules.<br>
+It lets you:</p>
+<ul>
+<li>Target specific days, hours, or even combinations like “first Monday” or “last day of month”.</li>
+<li>Define business-hour windows (e.g., every 10 minutes from 8am to 6pm).</li>
+<li>Schedule non-trivial patterns such as weekdays only, quarterly runs, or end-of-month logic.</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Use‑case</th>
+          <th style="text-align: left">Expression Example</th>
+          <th style="text-align: left">Meaning</th>
+          <th style="text-align: left">Potential Use</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Weekdays at 09:00 (UTC)</td>
+          <td style="text-align: left"><code>cron(0 9 ? * MON-FRI *)</code></td>
+          <td style="text-align: left">Mon -&gt; Fri, 09:00</td>
+          <td style="text-align: left">Send a daily standup email to the team every weekday morning.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Last calendar day of month, 23:45</td>
+          <td style="text-align: left"><code>cron(45 23 L * ? *)</code></td>
+          <td style="text-align: left">31 st / 30 th / 28 th / 29 th</td>
+          <td style="text-align: left">Automatically generate and email monthly billing reports.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Every 5 minutes during business hours</td>
+          <td style="text-align: left"><code>cron(0/5 8-17 ? * MON-FRI *)</code></td>
+          <td style="text-align: left">08:00–17:55, Mon–Fri</td>
+          <td style="text-align: left">Poll a database for updates or sync CRM data throughout the workday.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">First Monday of every month, 06:00</td>
+          <td style="text-align: left"><code>cron(0 6 ? * 2#1 *)</code></td>
+          <td style="text-align: left"><code>2#1</code> = first Monday</td>
+          <td style="text-align: left">Kick off the monthly system maintenance checklist or audits.</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>Tip</strong> – <code>L</code>, <code>W</code>, and <code>#</code> are advanced symbols:<br>
+  • <code>L</code> = last day,<br>
+  • <code>W</code> = nearest weekday,<br>
+  • <code>2#1</code> = Day‑of‑week #nth (Monday #1 = first Monday).</p>
+</blockquote>
+<p>To check how to create rule for EventBridge by <a href="/3-eventbridge/#1-Navigate-to-Amazon-EventBridge-Console">go to this section</a>.</p>
+<hr>
+<h3 id="2-ratebased-schedules">2. Rate–Based Schedules</h3>
+<p>A rate-based rule is a rule that defines a schedule that triggers an event at a fixed interval, such as every 5 minutes, every hour, or every day.
+You should use Rate-based rules when you want to trigger an action at consistent, fixed intervals without worrying about complex scheduling syntax.</p>
+<p>Use <strong>rate()</strong> for simple intervals:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Rate expression</th>
+          <th style="text-align: left">Behaviour</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>rate(5 minutes)</code></td>
+          <td style="text-align: left">Every 5 minutes continuously</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>rate(1 hour)</code></td>
+          <td style="text-align: left">Every hour</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>rate(1 day)</code></td>
+          <td style="text-align: left">Every 24 h (same time each day)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Best practice:</strong> choose <strong>rate()</strong> for “every <em>N</em> minutes/hours/days”, choose <strong>cron()</strong> when you need calendar‑aware schedules (weekdays, specific month/day, etc.).</p>
+<ul>
+<li>When create new rule, choose the same as when create cron expression.
+<img alt="advanced-1" src="/images/6.advanced/advanced-1.png"></li>
+<li>In <strong>Define Schedule</strong> section, choose the right option of <strong>Schedule pattern</strong></li>
+<li>Choose Rate Expression as you see fit.
+<img alt="advanced-2" src="/images/6.advanced/advanced-2.png"></li>
+<li>Then continue create rule as you <a href="/3-eventbridge/#4-Select-Target">create a cron rule</a>.</li>
+</ul>
+<hr>
+<h3 id="3-adding-event-pattern-filters">3. Adding Event Pattern Filters</h3>
+<p>Sometimes you publish different kinds of events to the default bus and only want <strong>some</strong> of them to reach a target. Then you will need event pattern.
+An event pattern defines the data EventBridge uses to determine whether to send the event to the target. If the event pattern matches the event, EventBridge sends the event to the target.</p>
+<ol>
+<li>In the rule builder, choose <strong>Event pattern</strong> instead of <strong>Schedule</strong>.<br>
+<img alt="advanced-2" src="/images/6.advanced/advanced-3.png"></li>
+<li>Event source: choose <strong>AWS events or event source</strong> (or <strong>Custom pattern</strong> if using your own bus).</li>
+<li>Define JSON filter, e.g.:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;source&#34;</span>: [<span style="color:#e6db74">&#34;custom.billing&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;detail-type&#34;</span>: [<span style="color:#e6db74">&#34;MonthlyInvoiceReady&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;detail&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;amount&#34;</span>: [ { <span style="color:#f92672">&#34;numeric&#34;</span>: [<span style="color:#e6db74">&#34;&gt;=&#34;</span>, <span style="color:#ae81ff">1000</span>] } ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This triggers only when:</p>
+<ul>
+<li>The payload’s source is custom.billing,</li>
+<li>Detail-type matches</li>
+<li>Amount ≥ 1000.</li>
+</ul>
+<ol start="4">
+<li>Continue -&gt; select the Lambda, SNS, etc. target -&gt; <strong>Create rule</strong></li>
+</ol>
+<h3 id="4-using-an-input-transformer">4. Using an Input Transformer</h3>
+<p>An Input Transformer is a feature that allows you to customize the data sent to a target when a rule is triggered. It enables you to reshape or filter the event data before it&rsquo;s passed to the target, making it easier to work with specific data points or format the data in a way that&rsquo;s compatible with the target service.</p>
+<ol>
+<li>Edit or create a rule.</li>
+<li>In the Targets section, after choosing your Lambda, expand Additional settings.
+<img alt="advanced-2" src="/images/6.advanced/advanced-4.png"></li>
+<li>Choose <strong>Configure target input</strong> and then <strong>Input transformer</strong> then <strong>Configure input transformer</strong>
+You can transform the incoming event before it arrives at your Lambda:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;InputPathsMap&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;$.detail.userId&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;total&#34;</span>: <span style="color:#e6db74">&#34;$.detail.amount&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;InputTemplate&#34;</span>: <span style="color:#e6db74">&#34;{ 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      \&#34;userId\&#34;: &lt;user&gt;, 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      \&#34;invoiceTotal\&#34;: &lt;total&gt; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   }&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img alt="advanced-2" src="/images/6.advanced/advanced-5.png">
+Original Event:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;custom.billing&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;detail-type&#34;</span>: <span style="color:#e6db74">&#34;MonthlyInvoiceReady&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;detail&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;userId&#34;</span>: <span style="color:#e6db74">&#34;abc123&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;amount&#34;</span>: <span style="color:#ae81ff">1520.50</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;plan&#34;</span>: <span style="color:#e6db74">&#34;Pro&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;region&#34;</span>: <span style="color:#e6db74">&#34;ap-southeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Result delivered to Lambda:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;userId&#34;</span>: <span style="color:#e6db74">&#34;abc123&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;invoiceTotal&#34;</span>: <span style="color:#ae81ff">1520.50</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This keeps your function lightweight—no need to parse the full EventBridge envelope.</p>
+<h3 id="5-multiple-targets">5. Multiple Targets</h3>
+<p>In EventBridge, a single rule can have up to five targets. This allows a rule to trigger multiple actions or services when an event matches its pattern, enabling a fan-out pattern where a single event can initiate several different processes concurrently.
+Example:</p>
+<ul>
+<li>Lambda -&gt; Update a database record with the new instance state.</li>
+<li>SNS -&gt; Publish a message to an SNS topic.</li>
+<li>Cloudwatch -&gt; Send the event details to CloudWatch Logs.</li>
+</ul>
+<p>When create or edit a new rule:</p>
+<ul>
+<li>Go to the “Add target” section</li>
+<li>Add your Lambda function
+<img alt="advanced-2" src="/images/6.advanced/advanced-target1.png"></li>
+<li>Click “Add another target”</li>
+<li>Choose SNS topic
+<img alt="advanced-2" src="/images/6.advanced/advanced-target2.png"></li>
+<li>Configure both as needed</li>
+<li>Click Create rule or Update rule</li>
+</ul>
+<h3 id="-6-result">✅ 6. <strong>Result</strong></h3>
+<p>You can now:</p>
+<ul>
+<li>Craft sophisticated CRON or rate schedules</li>
+<li>Filter events so only relevant data triggers your workflows</li>
+<li>Pre‑shape event payloads with input transformers</li>
+<li>Fan‑out a single rule to multiple downstream services</li>
+</ul>
+<p>In the final chapter, you’ll clean up resources to avoid ongoing costs and keep your AWS account tidy.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/5-cloudwatch/" title="Monitoring with CloudWatch Logs"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/7-cleanup/" title="Clean Up Resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1752079431"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752079431"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752079431"></script>
+    <script src="/js/jquery.sticky.js?1752079431"></script>
+    <script src="/js/featherlight.min.js?1752079431"></script>
+    <script src="/js/highlight.pack.js?1752079431"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752079431"></script>
+    <script src="/js/learn.js?1752079431"></script>
+    <script src="/js/hugo-learn.js?1752079431"></script>
+
+    <link href="/mermaid/mermaid.css?1752079431" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752079431"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
