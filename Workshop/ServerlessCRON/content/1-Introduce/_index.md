@@ -12,8 +12,7 @@ Normally, CRON jobs would be defined in a **crontab** file and subsequently exec
 - Fixed time (e.g., 09:30 AM)
 - Fixed interval (e.g., every 15 minutes)
 - Specific days of the week or month (e.g., every Monday)
-![CRONJobs](/images/cron-table.png) 
-
+![CRONJobs](https://https://dangdung177.github.io/Internship/images/cron-table.png) 
 The following special characters are supported in AWS EventBridge:
 
 - **(*)**: All value (every day, every hour,... ).
